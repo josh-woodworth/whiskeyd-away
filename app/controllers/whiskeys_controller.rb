@@ -35,6 +35,8 @@ class WhiskeysController < ApplicationController
   end
 
   def destroy
+    @whiskey.destroy
+    redirect_to root_path
   end
   
   private 
