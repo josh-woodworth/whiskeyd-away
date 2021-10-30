@@ -1,6 +1,7 @@
 class WhiskeysController < ApplicationController
 
   def index
+    
   end
 
   def show
@@ -11,7 +12,12 @@ class WhiskeysController < ApplicationController
   end
 
   def create
-    @whiskey = Whiskey.new
+    @whiskey = Whiskey.new(whiskey_params)
+    if @whiskey.save
+      redirect_to root_path
+    else
+      render 'new'
+    end
   end
 
   def edit

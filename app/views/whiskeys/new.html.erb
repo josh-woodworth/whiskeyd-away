@@ -1,0 +1,14 @@
+<h1>New Whiskey</h1>
+
+<%= form_for(@whiskey) do |f| %>
+  <label>Whiskey name:</label><br>
+  <%= f.text_field :name %><br>
+
+  <label>Description:</label><br>
+  <%= f.text_area :description %><br>
+
+  <label>Brand:</label><br>
+  <%= f.text_field :brand %><br>
+
+  <%= f.submit %>
+<% end %>
