@@ -25,9 +25,14 @@ class WhiskeysController < ApplicationController
   end
 
   def update
+    @whiskey = Whiskey.find(params[:id])
+    if @whiskey.update(whiskey_params)
+      redirect_to whiskey_path(@whiskey)
+    else render 'edit'
+    end
   end
 
-  def delete
+  def destroy
   end
   
   private 
