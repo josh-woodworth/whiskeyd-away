@@ -5,6 +5,7 @@ class WhiskeysController < ApplicationController
   end
 
   def show
+    @whiskey = Whiskey.find(params[:id])
   end
 
   def new 
@@ -32,7 +33,7 @@ class WhiskeysController < ApplicationController
   private 
 
     def whiskey_params
-      params.require(:whiskey).permit(:name, :description, :brand)
+      params.require(:whiskey).permit(:name, :description, :style)
     end
   
 end
