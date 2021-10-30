@@ -7,9 +7,11 @@ class WhiskeysController < ApplicationController
   end
 
   def new 
+    @whiskey = Whiskey.new
   end
 
   def create
+    @whiskey = Whiskey.new
   end
 
   def edit
@@ -20,5 +22,11 @@ class WhiskeysController < ApplicationController
 
   def delete
   end
+  
+  private 
+
+    def whiskey_params
+      params.require(:whiskey).permit(:name, :description, :brand)
+    end
   
 end
