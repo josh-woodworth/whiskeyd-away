@@ -1,7 +1,7 @@
 <h1>Whiskey Index</h1>
 
 <% @whiskeys.each do |whiskey| %>
-  <h3><%= whiskey.name %></h3>
+  <h3><%= link_to whiskey.name, whiskey_path(whiskey) %></h3>
 <% end %>
 
 <%= link_to "Add Whiskey", new_whiskey_path %>
