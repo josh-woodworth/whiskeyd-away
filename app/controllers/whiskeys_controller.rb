@@ -1,11 +1,13 @@
 class WhiskeysController < ApplicationController
+  
+  before_action :find_whiskey, only: [:show, :edit, :update, :destroy]
 
   def index
     @whiskeys = Whiskey.all
   end
 
   def show
-    @whiskey = Whiskey.find(params[:id])
+    
   end
 
   def new 
@@ -25,10 +27,10 @@ class WhiskeysController < ApplicationController
   end
 
   def update
-    @whiskey = Whiskey.find(params[:id])
     if @whiskey.update(whiskey_params)
       redirect_to whiskey_path(@whiskey)
-    else render 'edit'
+    else 
+      render 'edit'
     end
   end
 
@@ -40,5 +42,10 @@ class WhiskeysController < ApplicationController
     def whiskey_params
       params.require(:whiskey).permit(:name, :description, :style)
     end
+
+    def find_whiskey
+      @whiskey = Whiskey.find(params[:id])
+    end
+
   
 end

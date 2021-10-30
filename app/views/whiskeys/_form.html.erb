@@ -1,12 +1,7 @@
-<%= form_for(@whiskey) do |f| %>
-
-<%= f.label :name %><br>
-<%= f.text_field :name %><br>
-<%= f.label :description %><br>
-<%= f.text_area :description %><br> 
-<%= f.label :style %><br>
-<%= f.text_field :style %><br>
-
-  <%= f.button :submit %>  
-
+<%= simple_form_for @whiskey do |f| %>
+	
+	<%= f.input :name, label: "Whiskey Name" %>
+	<%= f.input :description %>
+	<%= f.input :style %>
+	<%= f.button :submit %>
 <% end %>
